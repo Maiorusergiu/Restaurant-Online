@@ -1,0 +1,41 @@
+label {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+  button {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: white;
+  }
+  button:hover {
+    color: rgb(102, 17, 17);
+    transition: 1s;
+    background-color: rgba(245, 245, 245, 0.527);
+    border-radius: 15px;
+  }
+    
+    
+  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+  small:hover {
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif
+      
+  }
+  .error-message {
+    color: rgb(255, 0, 0);
+   font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+  .row {
+    padding-bottom: 50px;
+    background-color: #a94442;
+    border-radius: 15px;
+
+  }

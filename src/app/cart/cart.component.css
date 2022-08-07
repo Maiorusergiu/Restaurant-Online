@@ -1,0 +1,11 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: rgb(196,131,131);
+    background: linear-gradient(90deg, rgba(196,131,131,1) 0%, rgba(91,0,0,1) 50%, rgba(196,131,131,1) 100%);
+}
+    .btn.btn-primary.px-3.me-2{
+        height: 40px;
+    }
+    .btn.btn-primary.px-3.ms-2{
+        height: 40px;
+    }

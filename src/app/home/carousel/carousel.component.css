@@ -1,0 +1,22 @@
+#carouselExampleControls:hover {
+    padding: 10px;
+    transition: 0.3s;
+}
+
+img {
+    border-radius: 15px;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    color:white;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+img:hover {
+    cursor: pointer;
+}
