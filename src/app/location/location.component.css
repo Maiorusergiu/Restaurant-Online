@@ -1,0 +1,29 @@
+.row {
+    background-color: #0000004a;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h1 {
+    border-color: rgb(255, 245, 226);
+    border-style: inset;
+    border-radius: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: wheat;
+}
+h1:hover {
+    transition-duration: 0.4s;
+    background-color: rgba(255, 255, 255, 0.795);
+    color: rgb(56, 56, 56);
+    padding: 5px;
+}
+a {
+    font-family: cursive;
+    color: white;
+}
+a:hover {
+    color: rgb(102, 17, 17);
+    transition: 1s;
+    background-color: rgba(255, 253, 253, 0.753);
+    border-radius: 15px;
+}

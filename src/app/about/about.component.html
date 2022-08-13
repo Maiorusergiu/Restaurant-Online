@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="jumbotron">
+        <h1 class="display-4">About Us!</h1>
+        <p class="lead">We represent <b>Tasty Food Oradea</b>, a successful Restaurant in Oradea founded in 2021.
+            <b>Tasty Food Oradea</b> is located on street <b>Marin Preda, number 3.</b>
+            You can see our location right down below!
+            We have many types of food waiting to be reviewed by you!
+            Our chef's are cooking the best meals in town!
+            Don't miss the chance to visit us!
+        </p>
+
+        <hr class="my-4">
+        <p>If you want to make an online order you have to be signed! Don't
+            hesitate to
+            <span *ngIf="!loggedIn" class="contact-us" id="register-here" [routerLink]="['/register']"
+                style="cursor: pointer;">Register
+                here!</span>
+            <span *ngIf="loggedIn" class="contact-us" id="register-here" style="cursor: pointer;">Order
+                here!</span>
+        </p>
+    </div>
+
+
+    <app-location></app-location>
+    <app-footer></app-footer>
+</div>

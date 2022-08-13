@@ -1,0 +1,43 @@
+<header id="header" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" sy>
+    <a href="/" id="logo" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="assets/tasty-food-logo.png" width="40px" height="40px" alt="Logo">
+        <h4 class="fs-4">Tasty Food Oradea</h4>
+
+    </a>
+    <ul class="nav nav-pills">
+        <li *ngIf="user !== null && user.role === 1"><a class="admin-button" routerLinkActive="active"
+                [routerLink]="['/admin-dashboard']">ADMIN DASHBOARD</a>
+        </li>
+        <li><a class="home-button" routerLinkActive="active" [routerLink]="['/home']">Home</a></li>
+        <li><a class="about-button" routerLinkActive="active" [routerLink]="['/about']">About</a></li>
+        <li *ngIf="user"><a class="about-button" routerLinkActive="active" [routerLink]="['/categories']">Menu</a></li>
+        <li><a class="login-button" routerLinkActive="active" *ngIf="!user" id="login"
+                [routerLink]="['/login']">Login</a>
+        <li><a style="cursor: pointer;" data-toggle="modal" data-target="#logoutModal" *ngIf="user" id="logout"
+                class="logout-button">Logout</a>
+        </li>
+
+        <li><a [routerLink]="['/cart']" routerLinkActive="active" style="cursor: pointer;" *ngIf="user" id="cart"
+                class="logout-button"><small class="cart-number">{{cart.totalCount}}</small><i class="bi-cart3"
+                    style="margin-right: 3px;"></i>
+                Cart
+            </a>
+        </li>
+    </ul>
+</header>
+
+<!-- Modal for logout -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 style="text-align: center;">Are you sure you want to logout?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" (click)="onLogout()" data-dismiss="modal">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>

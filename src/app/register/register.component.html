@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <h1 style="text-align: center;" *ngIf="!isLoading">Register!</h1>
+        <div class="alert alert-danger" *ngIf="errorMsg !== null">
+            <p>{{errorMsg}}</p>
+        </div>
+        <div *ngIf="isLoading" style="text-align: center;">
+            <app-spinner-loader></app-spinner-loader>
+        </div>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmitForm()" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input required type="email" class="form-control" formControlName="email" placeholder="Enter email">
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message" *ngIf="signUpForm.get('email').hasError(error.type) && 
+    (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input required type="password" class="form-control" formControlName="password"
+                    placeholder="Enter pasword">
+            </div>
+
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message" *ngIf="signUpForm.get('password').hasError(error.type) && 
+    (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input required type="password" formControlName="confirmPassword" class="form-control"
+                    placeholder="Enter confirm password">
+            </div>
+
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.confirmPassword">
+                    <div class="error-message" *ngIf="signUpForm.get('confirmPassword').hasError(error.type) && 
+    (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <button style="margin-top: 15px;" type="submit" class="btn btn-primary" (click)="onSubmitForm()"
+                [disabled]="!signUpForm.valid">Submit</button>
+            <small [routerLink]="['/login']" style="color: white; margin-left: 20px; font-size: 15px;">Do you already
+                have an account? Click here
+                to
+                login!</small>
+        </form>
+
+        <button id="open-modal" [hidden]="true" data-toggle="modal" data-target="#registerModal" type="button"
+            class="btn btn-primary">Open
+            Modal</button>
+
+        <!-- Modal for register info-->
+        <div [hidden]="true" style="color: white;" data-keyboard="false" data-backdrop="static" class="modal fade"
+            id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgb(10, 248, 10);">
+                    <div class="modal-body">
+                        <h4 style="text-align: center;">You have been registered successfully!</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

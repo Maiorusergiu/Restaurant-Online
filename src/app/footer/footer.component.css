@@ -1,0 +1,28 @@
+.row {
+    background-color: #0000004a;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h1 {
+    border-color: hsl(0, 100%, 46%);
+    border-style: inset;
+    border-radius: 15px;;
+}
+h1:hover {
+    transition-duration: 0.4s;
+    background-color: rgba(255, 255, 255, 0.795);
+    color: rgb(56, 56, 56);
+    padding: 5px;
+}
+a {
+    font-family: -webkit-body;
+    font-size: 15px;
+    color: white;
+}
+a:hover {
+    color: rgb(102, 17, 17);
+    transition: 1s;
+    background-color: rgba(245, 245, 245, 0.527);
+    border-radius: 15px;
+}

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <h1 style="text-align: center;" *ngIf="!isLoading">Login!</h1>
+        <div class="alert alert-danger" *ngIf="errorMsg !== null">
+            <p>{{errorMsg}}</p>
+        </div>
+        <div style="text-align: center;" *ngIf="isLoading">
+            <app-spinner-loader></app-spinner-loader>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginForm()" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input required formControlName="email" type="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && 
+    (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input required formControlName="password" type="password" class="form-control"
+                    placeholder="Enter pasword">
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && 
+    (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Submit</button>
+            <small [routerLink]="['/register']" style="color: white; margin-left: 20px; font-size: 15px;">Don't have an
+                account? Click here to
+                register!</small>
+
+        </form>
+
+
+        <button id="open-modal" [hidden]="true" data-toggle="modal" data-target="#loginModal" type="button"
+            class="btn btn-primary">Open
+            Modal</button>
+
+        <!-- Modal for logging in -->
+        <div [hidden]="true" style="color: white;" data-keyboard="false" data-backdrop="static" class="modal fade"
+            id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background-color: rgb(10, 248, 10);">
+                    <div class="modal-body">
+                        <h4 style="text-align: center;">You are logged in successfully!</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" [routerLink]="['/categories']"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

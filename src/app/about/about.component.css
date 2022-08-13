@@ -1,0 +1,40 @@
+button {
+    font-family: cursive;
+    color: white;
+}
+button:hover {
+    color: rgb(102, 17, 17);
+    transition: 1s;
+    background-color: rgba(245, 245, 245, 0.527);
+    border-radius: 15px;
+}
+.jumbotron {
+   background-color:#e9ecef7c;
+   margin-top: 25px;
+}
+h1 {
+    color: rbg(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+}
+p {
+    font-family: cursive;
+    color: rgb(0, 0, 0);
+}
+.contact-us {
+    color: black;
+}
+.contact-us:hover {
+    transition-duration: 0.4s;
+    color: white;
+    border-style: inset;
+    border-color: black;
+    border-radius: 15px;
+    padding:2.5px
+}
+img {
+    max-width: 400px;
+}
+img:hover{
+    padding:10px;
+    transition: 0.3s;
+}

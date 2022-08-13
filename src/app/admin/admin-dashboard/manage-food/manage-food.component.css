@@ -1,0 +1,9 @@
+.bi.bi-search {
+    background-color: #ddd;
+    align-self: center;
+    padding: 6.5px;
+    position: absolute;
+}
+label {
+    margin-top: 5px;
+}

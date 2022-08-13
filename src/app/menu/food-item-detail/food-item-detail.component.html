@@ -1,0 +1,85 @@
+<div class="col-xs-12 col-md-6 col-md-offset-3" style="margin-top: 20px; text-align: center;">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="{{foodItem?.imagePath}}" alt="{{foodItem?.imagePath}}" class="img-responsive">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{foodItem?.name}}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            Price: {{foodItem?.price}}$
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            Delivery time: {{foodItem?.deliveryTime}}min
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            Category: {{foodItem?.category}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <ngb-rating [max]="5" [formControl]="rateStar"></ngb-rating>
+            <div class="form-text small">
+                <div *ngIf="rateStar.valid" class="text-success">Thanks!</div>
+                <div *ngIf="rateStar.invalid" class="text-danger">Please rate <b>{{foodItem?.name}}</b></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Ingredients</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-group" *ngFor="let ingredients of foodItem?.ingredients">
+                <li class="list-group-item">{{ingredients?.name}} - {{ingredients?.amount}}g</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-12">
+            <button  data-toggle="modal" data-target="#addToCartModal" style="float: right;" class="btn btn-primary"><i class="bi-cart3" style="margin-right: 3px;"></i>Add
+                to Cart</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h3 style="text-align: center;">Reviews by stars</h3>
+    <div class="row" style="padding: 15px;" *ngIf="rateStar.valid">
+        <ul>
+            <li><b>{{foodItem?.name}}</b> received <b>{{rateStar.value}}</b> stars by <b>{{user.email}}</b></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<!--Add to cart modal-->
+  <div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog" aria-labelledby="addToCartModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 style="text-align: center;">Are you sure you want to add <b>{{foodItem?.name}}</b> to cart?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" (click)="addToCart()" data-dismiss="modal">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

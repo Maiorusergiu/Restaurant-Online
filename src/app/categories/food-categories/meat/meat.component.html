@@ -1,0 +1,16 @@
+<div [routerLink]="['/food-details', i]" class="column" *ngFor="let foodItem of foodItems, let i = index">
+    <div class="card" *ngIf="foodItem.category === 'meat'"> 
+        <img class="card-img-top" src="{{foodItem.imagePath}}" alt="{{foodItem.name}}">
+        <div class="card-body">
+            <h4 class="card-title"><b>{{foodItem.name}}</b></h4>
+            <small>Rating:</small>
+            <ngb-rating [max]="5" [(rate)]="currentValue" [readonly]="true">
+            </ngb-rating>
+            <p class="card-text"><small class="text-muted">Delivery time: {{foodItem.deliveryTime}}min</small></p>
+            <button style="float: right;" class="btn btn-primary"><i class="bi-cart3" style="margin-right: 3px;"></i>Add
+                to Cart</button>
+            <p class="card-text">Price: {{foodItem.price}}$</p>
+        </div>
+    </div>
+</div>
+

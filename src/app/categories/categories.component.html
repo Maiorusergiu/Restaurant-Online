@@ -1,0 +1,56 @@
+<h3 class="title">Categories</h3>
+<div class="row">
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/soup']">
+            <img src="/assets/food-categories/soup.png" alt="soup">
+            <h2>Soup</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/hamburger']">
+            <img src="/assets/food-categories/hamburger.png" alt="hamburger">
+            <h2>Hamburger</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/meat']">
+            <img src="/assets/food-categories/meat.png" alt="meat">
+            <h2>Meat</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/spagetti']">
+            <img src="/assets/food-categories/spaghete.png" alt="spagetti">
+            <h2>Spagetti</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/salad']">
+            <img src="/assets/food-categories/salata.png" alt="salad">
+            <h2>Salad</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/dessert']">
+            <img src="/assets/food-categories/desert.png" alt="dessert">
+            <h2>Dessert</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/pizza']">
+            <img src="/assets/food-categories/pizza.png" alt="pizza">
+            <h2>Pizza</h2>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card" [routerLink]="['/categories/drink']">
+            <img src="/assets/food-categories/drink.png" alt="drink">
+            <h2>Drink</h2>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <h3 class="title">Our Complete Menu</h3>
+</div>
+
+<app-menu></app-menu>
+<app-footer></app-footer>

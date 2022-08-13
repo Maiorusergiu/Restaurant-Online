@@ -1,0 +1,20 @@
+<a [routerLink]="['/admin-dashboard', index]" routerLinkActive="active" style="cursor: pointer; margin: 10px;"
+    class="list-group-item clearfix">
+    <div class=" pull-left">
+        <h4 class="list-group-item-heading">Name: {{foodItem?.name}}</h4>
+        <p class="list-group-item-text">Category: {{foodItem?.category}}</p>
+        <div class="ingredients" style="display: flex; margin-left: 10px;">
+            <p class="list-group-item-text" style="margin-right: 5px; float: left;"><b>Ingredients:</b></p>
+            <p style="margin: 1px;" *ngFor="let ingredient of foodItem?.ingredients" class="list-group-item-text">
+
+                [{{ingredient?.name}} - {{ingredient?.amount}}g]
+            </p>
+
+        </div>
+
+    </div>
+
+    <span class="pull-right">
+        <img src="{{foodItem?.imagePath}}" alt="{{foodItem?.name}}" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>
