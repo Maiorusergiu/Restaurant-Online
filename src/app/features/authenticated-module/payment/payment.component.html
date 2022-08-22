@@ -1,0 +1,23 @@
+<div class="row">
+    <h2>Payment</h2>
+    <hr/>
+    <h4><b>#Order{{order?.id}}</b></h4>
+    <h5><b>Date:{{order?.createdAt | date}}</b></h5>
+    <h5><b>Address:{{order?.address}}</b></h5>
+    <h5><b>Full name:{{order?.fullName}}</b></h5>
+    <h5><b>Email:{{order?.email}}</b></h5>
+    <h5><b>Total Quantity:{{order?.totalQuantity}}</b></h5>
+    <h5><b>Total Price:{{order?.totalPrice | currency}}</b></h5>
+    <h5><b *ngIf="order?.status === 1">Status:UNPAYED</b></h5>
+    <h5><b *ngIf="order?.status !== 1">Status:PAYED</b></h5>
+    <button class="btn btn-danger" (click)="onCancelOrder()">Cancel Order</button>
+    <div class="image-food" *ngFor="let item of order?.items">
+        <img [src]="item.foodItem.imagePath"/>
+        <h5 class="food-names"><b>[{{item.foodItem?.name}}]</b> - <b>[{{item?.quantity}} Quantity]</b> - <b>[{{item?.foodItem.price | currency}}]</b></h5>
+    </div>
+    <div class="price">
+        <h5></h5>
+    </div>
+
+</div>
+

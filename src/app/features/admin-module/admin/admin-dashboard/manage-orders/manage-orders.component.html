@@ -1,0 +1,35 @@
+<h3 class="p-3 text-center">Manage Orders</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>User email</th>
+                <th>User Full Name</th>
+                <th>Quantity</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Total price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let ord of orders; let index = i">
+            <tr>
+                
+                <td>{{ord.email}}</td>
+                <td>{{ord.fullName}}</td>
+                <td>{{ord.totalQuantity}}</td>
+                <td>{{ord.address}}</td>
+                <td>{{ord.status}}</td>
+                <td>{{ord.createdAt}}</td>
+                <td>{{ord.totalPrice}}</td>
+                <td><button type="button" (click)="onDeleteOrder(ord)" class="btn btn-danger" style="display: flex;">Delete</button></td>
+            
+            
+                
+            </tr>
+            
+        </tbody>
+       
+    </table>
+</div>

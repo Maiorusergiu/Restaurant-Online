@@ -1,0 +1,69 @@
+.row.g-3{
+    padding-bottom: 20px;
+    background-color: #a94442;
+    border-radius: 15px;
+    margin: 0;
+
+  }
+.checkout-title{
+    padding: 15px;
+    padding-bottom: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.table{
+    background-color: white;
+}
+
+label {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+  button {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: white;
+  }
+  button:hover {
+    color: rgb(102, 17, 17);
+    transition: 1s;
+    background-color: rgba(245, 245, 245, 0.527);
+    border-radius: 15px;
+  }
+    
+  .payment-button{
+    text-align: center;
+    margin-top: 25px;
+  }
+    
+
+  small:hover {
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
+      
+  }
+  .jumbotron {
+    display: inline-block;
+    max-width: 50%;
+    margin-top: 20px;
+  }
+  .order-item-list{
+    display: flex;
+  }
+  .mb-0 {
+    font-size: 23px;
+    font-family: serif;
+}
+
+img {
+    border-radius: 50px;
+}
+.col-md-8{
+    margin-top: 20px;
+    margin-left: 150px;
+}
+.col-12{
+    margin-left: 10px;
+    padding-right: 25px;
+}

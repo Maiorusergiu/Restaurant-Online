@@ -1,0 +1,112 @@
+.title {
+    color: white;
+    text-align: center;
+    font-family: --webkit-body;
+    font-size: 70px;
+    font-style: italic;
+    margin-top: 50px;
+    border-color: #832222;
+    border-style: none;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    background-color: #00000099;
+}
+.title:hover {
+transition: 0.8s;
+background-color: #942f2fa8;
+cursor: pointer;
+}
+  
+  
+  /* Float four columns side by side */
+  .column {
+   float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  .column[_ngcontent-tpu-c108] {
+    display: inline-block;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {
+      margin-top: 50px;
+      
+
+
+}
+h1 {
+  font-style: italic;
+  font-family: --webkit-body;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: white;
+}
+img {
+    border-style: inset;
+    border-radius: 40px;
+    border-color: white;
+    background-color: white;
+    width: 50%;
+    align-self: center;
+    width: 117px;
+    height: 116px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-height: 176px;
+    
+}
+   h2 {
+      
+       color: #000000;
+       margin-top: 0;
+       background-color: #ffff00;
+       border-radius: 20px;
+   }
+   h2:hover {
+       color: #832222;
+       transition: 0.4s;
+   }
+
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+  }
+  .card:hover {
+      transition: 0.4s;
+      margin-top: -10px;
+      
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 800px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    
+    }
+  }
+  hr {
+    margin-top: 50px;
+   border: inset;
+   border-color: black;
+   background: black;
+   padding: 5px;
+   text-align: center;
+   width: 96%;
+  }

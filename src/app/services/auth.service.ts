@@ -4,6 +4,8 @@ import { BehaviorSubject, throwError } from "rxjs";
 import { Role, User } from "../models/user.model";
 import { catchError, tap } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { CartService } from "./cart.service";
+import { Cart } from "../models/cart.model";
 
 export interface AuthenticationData {
     idToken: string;
@@ -17,13 +19,18 @@ export interface AuthenticationData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-    constructor(private http: HttpClient, private router: Router) {
-
+    constructor(private http: HttpClient, private router: Router, private cartService: CartService) {
+        this.cart = this.cartService.getCurrentCartValue;
     }
+    cart: Cart
     user = new BehaviorSubject<User>(null);
     private tokenExpiration: any;
     private signUpApi = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBYiQ5-WX_Sn1822Tx50jRc-xMminKZRTA';
     private signInApi = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBYiQ5-WX_Sn1822Tx50jRc-xMminKZRTA';
+
+    getUserValue():User {
+        return this.user.value;
+    }
 
     signUpRequest(email: string, password: string) {
         return this.http.post<AuthenticationData>(this.signUpApi, { email: email, password: password, returnSecureToken: true })
@@ -37,7 +44,7 @@ export class AuthService {
         }));
     }
     private authenticationHandle(userLocalId: string, role: Role, email: string, token: string, expiresIn: number) {
-        const expiration = new Date(new Date().getTime() + expiresIn * 1000)
+        const expiration = new Date(new Date().getTime() + expiresIn * 1000);
         const newUser = new User(userLocalId, role, email, token, expiration);
         if (newUser.email === 'maiorusergiu@gmail.com') {
             newUser.role = Role.admin
@@ -60,11 +67,14 @@ export class AuthService {
             const expirationDuration = new Date(userLoggedIn.tokenExpirationDate).getTime() - new Date().getTime();
             this.autoLogout(expirationDuration);
         }
+        
     }
     autoLogout(expirationDuration: number) {
         this.tokenExpiration = setTimeout(() => {
             this.logout()
+            this.cartService.clearCart();
         }, expirationDuration)
+        
     }
     logout() {
         this.user.next(null);
@@ -74,6 +84,7 @@ export class AuthService {
             clearTimeout(this.tokenExpiration);
         }
         this.tokenExpiration = null;
+        this.cartService.clearCart();
     }
     private handleErrorForSignUp(errorResponse: HttpErrorResponse) {
         let messsageError = 'An unknown error occured!';

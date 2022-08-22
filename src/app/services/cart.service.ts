@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { convertTypeAcquisitionFromJson } from 'typescript';
 import { Cart } from '../models/cart.model';
 import { CartItem } from '../models/cartItem.model';
 import { FoodItem } from '../models/food.model';
@@ -17,10 +16,15 @@ private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
     let cartItem = this.cart.items.find(item => item.foodItem.name === foodItem.name);
     if(cartItem){
       cartItem.quantity += 1;
+      cartItem.price = cartItem.quantity * cartItem.foodItem.price;
+      this.setCartToLocalStorage();
       return;
     }
     this.cart.items.push(new CartItem(foodItem));
     this.setCartToLocalStorage();
+  }
+  get getCurrentCartValue() {
+    return this.cartSubject.value;
   }
   changeQuantity(foodItem: FoodItem, quantity: number) {
     let cartItem = this.cart.items.find(item => item.foodItem === foodItem);
