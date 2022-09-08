@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FoodItem } from 'src/app/models/food.model';
@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
-import { isJSDocThisTag } from 'typescript';
+
 
 @Component({
   selector: 'app-food-item-detail',

@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { User } from '../../../models/user.model';
-import { AuthenticationData, AuthService } from '../../../services/auth.service';
+import { User } from '../../../../models/user.model';
+import { AuthenticationData, AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-login',

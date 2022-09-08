@@ -38,7 +38,6 @@ private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   removeFromCart(foodItem: FoodItem) {
     this.cart.items = this.cart.items;
     this.cart.items = this.cart.items.filter(item => item.foodItem != foodItem);
-   // this.cart.items.splice(this.cart.items.indexOf(parseInt(foodItem.id)), 1);
     this.setCartToLocalStorage();
   }
   clearCart(){

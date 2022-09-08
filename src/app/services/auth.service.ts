@@ -44,7 +44,10 @@ export class AuthService {
         }));
     }
     private authenticationHandle(userLocalId: string, role: Role, email: string, token: string, expiresIn: number) {
-        const expiration = new Date(new Date().getTime() + expiresIn * 1000);
+        const expiration = new Date(new Date().getTime() + expiresIn * 333); //se formeaza o noua data
+        //data curenta in milisecunde se aduna cu expriesIn(3600 este valoarea) * 333 = 1,198,800 de milisecunde
+        //Expiration este o data noua care este formata din milisecundele curente + 1,198,800 de milisecunde //20 min
+        console.log(expiration)
         const newUser = new User(userLocalId, role, email, token, expiration);
         if (newUser.email === 'maiorusergiu@gmail.com') {
             newUser.role = Role.admin
@@ -57,7 +60,14 @@ export class AuthService {
 
 
     autoLogin() {
-        const userLoggedIn: { email: string, role: Role, id: string, token: string, tokenExpirationDate: string } = JSON.parse(localStorage.getItem('user'));
+        const userLoggedIn: {
+            email: string,
+            role: Role,
+            id: string,
+            token: string,
+            tokenExpirationDate: string
+         } = JSON.parse(localStorage.getItem('user'));
+        //returnează userul existent din local storage
         if (!userLoggedIn) {
             return;
         }
@@ -65,6 +75,8 @@ export class AuthService {
         if (loggedUser.getToken) {
             this.user.next(loggedUser);
             const expirationDuration = new Date(userLoggedIn.tokenExpirationDate).getTime() - new Date().getTime();
+            //operatia verifica cand a expirat timpul token-ului
+            //cand a expirat si devine zero, functia autoLogout este apelata
             this.autoLogout(expirationDuration);
         }
         

@@ -2,7 +2,6 @@
 import { Ingredient } from "./ingredient.model";
 
 export class FoodItem {
-    public id: string;
     public imagePath: string;
     public name: string;
     public ingredients: Ingredient[];
@@ -11,8 +10,13 @@ export class FoodItem {
     public price: number;
     public category: string;
 
-    constructor(id: string,imagePath: string, name: string, ingredients: Ingredient[], valueRate: number, deliveryTime: number, price: number, category: string) {
-        this.id = id;
+    constructor(imagePath: string,
+        name: string,
+        ingredients: Ingredient[],
+        valueRate: number,
+        deliveryTime: number,
+        price: number,
+        category: string) {
         this.imagePath = imagePath;
         this.name = name;
         this.ingredients = ingredients;

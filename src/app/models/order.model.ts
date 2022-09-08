@@ -4,7 +4,7 @@ import * as uuid from "uuid";
 
 export class Order {
 
-    id: string = uuid();;
+    id: string = uuid();
     items: CartItem[];
     address: string;
     fullName: string;
@@ -13,11 +13,6 @@ export class Order {
     totalQuantity: number
     createdAt: Date = new Date();
     status: Status = Status.NOTPAYED;
-    
-
-    
-  
-  
 }
 export enum Status{
     PAYED,

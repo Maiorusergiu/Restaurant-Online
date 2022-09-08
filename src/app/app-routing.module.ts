@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './features/starter-module/about/about.component';
+import { AboutComponent } from './features/starter-module/pages/about/about.component';
 import { AdminDashboardStartComponent } from './features/admin-module/admin/admin-dashboard-start/admin-dashboard-start.component';
 import { AdminDashboardComponent } from './features/admin-module/admin/admin-dashboard/admin-dashboard.component';
 import { ManageFoodDetailComponent } from './features/admin-module/admin/admin-dashboard/manage-food-detail/manage-food-detail.component';
@@ -18,15 +18,14 @@ import { SaladComponent } from './features/authenticated-module/categories/food-
 import { SoupComponent } from './features/authenticated-module/categories/food-categories/soup/soup.component';
 import { SpagettiComponent } from './features/authenticated-module/categories/food-categories/spagetti/spagetti.component';
 import { CheckoutPageComponent } from './features/authenticated-module/checkout-page/checkout-page.component';
-import { HomeComponent } from './features/starter-module/home/home.component';
-import { LoginComponent } from './features/starter-module/login/login.component';
+import { HomeComponent } from './features/starter-module/pages/home/home.component';
+import { LoginComponent } from './features/starter-module/pages/login/login.component';
 import { FoodItemDetailComponent } from './features/authenticated-module/menu/food-item-detail/food-item-detail.component';
 import { PaymentComponent } from './features/authenticated-module/payment/payment.component';
-import { RegisterComponent } from './features/starter-module/register/register.component';
+import { RegisterComponent } from './features/starter-module/pages/register/register.component';
 import { AdminGuard } from './services/admin.guard';
 import { AuthGuard } from './services/auth.guard';
 import { CheckoutGuard } from './services/checkout.guard';
-import { FoodItemResolver } from './services/foodItem.resolver';
 import { RegisterAndLoginGuard } from './services/register.guard';
 
 const routes: Routes = [
@@ -43,11 +42,11 @@ const routes: Routes = [
       { path: 'manage-food', component: ManageFoodComponent },
       { path: 'manage-orders', component: ManageOrdersComponent},
       { path: ':id', component: ManageFoodDetailComponent, },
-      //manage food
-      //manage orders
     ]
   },
   {path: 'checkout', component: CheckoutPageComponent, canActivate: [CheckoutGuard, AuthGuard]},
+
+
   {
     path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard], children: [
       {path: '', component: CategoriesStartComponent},
@@ -61,7 +60,7 @@ const routes: Routes = [
       {path: 'drink', component: DrinkComponent},
     ]
   },
-  { path: 'food-details/:id', component: FoodItemDetailComponent, },
+  { path: 'food-details/:id', component: FoodItemDetailComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
 

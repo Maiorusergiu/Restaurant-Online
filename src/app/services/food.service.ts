@@ -26,25 +26,13 @@ export class FoodService {
         return this.foodItems.slice();
 
     }
-    returnFoodItemsFromDataBase() {
-        return this.http.get<FoodItem[]>(this.apiURL);
-    }
-    // returnFoodItem() {
-    //     return this.http.get<FoodItem[]>(this.apiURL).pipe(map(foodItems => {
-    //         return foodItems.map(foodItem => {
-    //             return { ...foodItem, ingredients: foodItem.ingredients ? foodItem.ingredients : [] }
-    //         })
-    //     }))
-    // }
+    
     getFoodById(id: number) {
         this.foodItemSubject.next(this.foodItems[id]);
         return this.foodItems[id];
 
     }
-    getFoodByIdFromDatabase(id: number) {
-
-        return this.http.get<FoodItem>(`https://tasty-food-oradea-default-rtdb.firebaseio.com/fooditem/${id}.json`);
-    }
+   
     addFoodItem(foodItem: FoodItem) {
         this.foodItems = this.foodItems || [];
         this.foodItems.push(foodItem);
@@ -54,7 +42,13 @@ export class FoodService {
         })
 
     }
+    returnFoodItemsFromDataBase() {
+        return this.http.get<FoodItem[]>(this.apiURL);
+    }
+    getFoodByIdFromDatabase(id: number) {
 
+        return this.http.get<FoodItem>(`https://tasty-food-oradea-default-rtdb.firebaseio.com/fooditem/${id}.json`);
+    }
     deleteFoodItem(id: number) {
 
         return this.http.delete(`https://tasty-food-oradea-default-rtdb.firebaseio.com/fooditem/${id}.json`);

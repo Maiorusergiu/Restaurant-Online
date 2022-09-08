@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthenticationData, AuthService } from '../../../services/auth.service';
+import { AuthenticationData, AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
